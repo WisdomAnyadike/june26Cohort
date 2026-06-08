@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text">
+    
+
+</body>
+</html>
+<script>
+
+    // string 
+    let school = 'SQI'
+
+    // number
+    let studentAge = 18
+
+    // boolean 
+    let isSqisLightOn  = true
+    let canDelete = false 
+
+    // undefined 
+    let car 
+
+    // null
+    let myValue = null
+
+    // array 
+    let fruits = ['orange' , 'watermelon' , undefined , null , 45  ]
+
+   // objects 
+
+   let card = {
+    pin : '3456789098757', 
+    amount : 500 ,
+    provider : 'MTN' ,
+    isUsed : false , 
+    load : () => {
+        return 'you have successfully loaded this card'
+    }
+    }
+card.pin
+    card.load()
+
+    //function
+
+    function jump(params) {
+        console.log('i am jumping');
+    }
+
+    jump()
+
+// string methods
+
+let string = 'Javascript'
+console.log(string.length);
+
+string = string.toUpperCase()
+console.log(string);
+
+//  extraction methods in strings : substr method , substring method , slice method
+
+let newWord = string.substr(4 , 6) + 'er' // scripter
+let newestWord = newWord.toLowerCase()
+
+
+
+let word1 = 'pulchritude'
+let word2 = word1.substr(7 , 3)
+
+
+
+string.slice(4, 10 )
+
+// type coercion
+let a = '50'
+let b = 5
+
+let add = a + b // 505
+let subtract = a - b
+
+console.log( add , subtract);
+
+// split method : type casting 
+
+let college = 'rice,beans,egg,plantain'
+console.log(college.split('plan'));
+
+ // ['soft quest incoperated']
+
+
+// trim method
+
+let myString = ' wisdom anyadike.   '
+
+console.log(myString.length , myString);
+
+myString = myString.trimEnd()
+
+console.log(myString.length , myString);
+
+
+// includes
+
+let theString = '30 Days Of JavaScript'
+
+console.log(theString.includes('30 Days Of JavaScript'));
+
+
+// replace 
+
+let pythonString = theString.replace('JavaScript' , 'python')
+console.log(pythonString);
+
+
+let thisString = 'i havent  HaD rice in a While' // I havent had rice in a second 
+thisString = thisString.replace('i', 'I').replace(' HaD' , 'had').replaceAll('While' , 'second')
+console.log(thisString);
+
+// charAt method
+
+console.log(thisString.charAt(50));
+
+
+let firstVal = 'abcdefghijklmnopqrstuvwxyz' // 97
+let secondVal = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' // 65
+
+console.log(firstVal.charCodeAt(0) , secondVal.charCodeAt(0));
+
+// indexOf
+
+console.log(thisString.lastIndexOf('h'));
+
+// concat
+
+let one = 'i love'
+let two = 'fruits'
+let three = 'like'
+let four = 'cherry,mangos,strawberries and grapes.'
+
+
+let newString = two.concat( ' ' , three , ' ' , four , ' ' , one )
+console.log(newString); 
+
+
+console.log(newString.endsWith('i love'));
+
+console.log(newString.search('berry'));
+// repeat
+
+let val  = '*'
+
+let myText = 'stupid'
+let sensoredText = val.repeat(myText.length)
+console.log(myText , sensoredText);
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

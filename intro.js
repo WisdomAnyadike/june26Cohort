@@ -1,0 +1,1 @@
+document.body.innerHTML = 'i love javascript'

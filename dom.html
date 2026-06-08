@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="input1"  >
+    <button onclick="sensorWord()"> click here </button>
+
+
+     <p id="pTag" >  </p>
+    
+</body>
+</html>
+<script>
+
+let inputElement =  document.getElementById('input1')
+let paragraphElement = document.getElementById('pTag')
+
+// inputElement.value = 'i love js'
+// paragraphElement.innerHTML = 'js is sweet'
+// paragraphElement.style.color = 'yellow'
+
+
+function sensorWord() {
+    let inputValue = inputElement.value
+    console.log(inputValue);
+   
+     paragraphElement.innerHTML = inputValue
+    
+}
+
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input" >
+
+    <button onclick="sensor()" > sensor </button>
+
+    <div id="output">
+
+
+    </div>
+    
+</body>
+</html>
+<script>
+
+let inputElement = document.getElementById('input')
+let div = document.getElementById('output')
+
+console.log(inputElement);
+
+
+
+function sensor() {
+    // let vulgarWords = [ 'stupid' , 'foolish' , 'idiot' , 'fool']
+   
+   let outputText = inputElement.value.toLowerCase().
+   replaceAll('stupid' , '*'.repeat(6) ).
+   replaceAll( 'foolish' , '*'.repeat(7) ).
+   replaceAll('idiot' , '*'.repeat(5)).
+   replaceAll('fool' , '*'.repeat(4))
+  
+
+    div.innerHTML =  outputText[0].toUpperCase() + outputText.slice(1)
+}
+
+
+
+
+
+
+
+
+</script>
