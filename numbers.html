@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+body{
+    background-color: white ;
+}
+
+    </style>
 </head>
-<body>
+<body id="theBody" >
+
+    <button onclick="changeBackground()"> change mode </button>
     
 
 
@@ -130,10 +138,87 @@ console.log(typeof value1 , value1);
 // Math.floor()
 
 
+console.log(Math.random());
+ // 0.01 * 11  - 0.999 * 11 
+ //  0.11  - 10.99
+//  1 -1  - 11-1
+// 0 - 10
+
+console.log(Math.floor( Math.random() * 11)  );
+// 0 - 10
+
+console.log(Math.ceil(Math.random() * 11) - 1);
+ // 0 - 10
 
 
-  
 
+ // 2 - 20
+ // 0 + 2 - 18 + 2
+ // 1 + 1 - 19 + 1
+
+Math.floor( Math.random() * 19) + 2
+ // 0.01 * 19 - 0.99999 * 19
+// 0.19 - 18.99
+// 0 - 18
+// 2 - 20
+
+Math.ceil(Math.random() * 19) + 1
+// 0.01 * 19 - 0.999 * 19
+// 0.19 - 18.99
+// 1 - 19
+// 2 - 20
+
+// comparism operators
+
+console.log(3 == '3');
+ //true
+ console.log(3 === '3');
+ // false
+
+3 // all numbers positive and negative are truthy except 0
+
+console.log(3 > 4);
+console.log(5 < 67);
+
+// >=
+
+20 >= 25 // false
+ 20 >= 20 // true
+ 20 >= 19 // true
+
+
+ 34 <= 2 // false
+
+ 3 === 3 // true
+ 3 !== 3 // false
+
+ // conditionals
+ let d = 25
+ let e = 25
+
+ if (undefined) {
+console.log('hello');
+ }
+
+
+
+
+ let body = document.getElementById('theBody')
+ body.style.backgroundColor = 'white'
+ console.log(body.style.backgroundColor);
+
+
+
+ function changeBackground() {
+
+if (body.style.backgroundColor === 'white') {
+    body.style.backgroundColor = 'black'
+ } else  {
+    body.style.backgroundColor = 'white'
+ } 
+
+
+ }
 
     
 </script>
