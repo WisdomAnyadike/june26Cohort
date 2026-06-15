@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="input1">
+
+    <button onclick="guessNumber()"> guess </button>
+
+    <p id="display"></p>
+
+    <h3> score : <span id="score"> </span></h3>
+</body>
+</html>
+<script>
+let inputElement = document.getElementById('input1')
+let outputDisplay = document.getElementById('display')
+let theScore = document.getElementById('score')
+
+
+let coinScore = 0
+function displaScore() {
+    theScore.innerHTML = coinScore
+}
+
+displaScore()
+
+function guessNumber() {
+    let inputValue = inputElement.value.trim() // '  '
+   
+    if (inputValue === "") {
+       alert('input field is mandatory');     
+    } else if (isNaN(inputValue)) {
+     alert('value must be a number')
+    }  else if (Number(inputValue) < 1 ){
+     alert('value must be greather or equal to 1 ')
+    } else if (Number(inputValue) > 10){
+     alert('value must be less or equal to 10 ')
+    }
+    
+    else {
+        let myNumber = Math.floor(Math.random() * 10)+1 // 1 - 10
+        if (+inputValue === myNumber) {
+        outputDisplay.innerHTML = 'WOW, you win!'
+        coinScore++ 
+        displaScore()
+        } else {
+             outputDisplay.innerHTML = `you lost , the correct answer is ${myNumber}`
+        }
+
+        inputElement.value = ''
+        
+        
+
+
+        
+        
+    }
+
+
+    
+}
+
+
+
+
+
+// let string = 'value'
+// console.log(string.indexOf('vau'));
+
+
+//  console.log(Math.floor(Math.random() * 10)+1);
+ 
+//  console.log(Math.floor(Math.random() * 10)+1);
+
+
+
+
+</script>
