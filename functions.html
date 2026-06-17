@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="(function () {alert('i jumped');}())">  click </button>
+    
+</body>
+</html>
+<script>
+// var user = undefined
+// function jump() {
+//     console.log('i jumped');
+    
+// }
+
+
+
+console.log(user);
+
+var user = 'david' 
+
+
+console.log(user);
+
+
+
+// function expresssion
+
+var jumper = function () {
+    console.log('i jumped');
+    
+}
+
+jumper();
+
+// IIFE
+(function () {
+    alert('i jumped');
+    
+}())
+
+// Arrow function 
+let function1 = () => {
+
+}
+
+
+function multiplyBy5(a , b , c = 6) {
+    console.log(c * 5);
+    
+    
+}
+
+multiplyBy5(50 , 5  , 4)
+multiplyBy5(4 , 5 )
+
+
+
+
+</script>

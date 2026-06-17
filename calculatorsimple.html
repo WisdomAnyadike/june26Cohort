@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="input">
+    <button onclick="calculate('+')"> + </button>
+      <button onclick="calculate('-')"> - </button>
+      <p id="preview"> </p>
+
+    
+</body>
+</html>
+<script>
+// var val = undefined
+    let input = document.getElementById('input')
+    let preview = document.getElementById('preview')
+
+    function calculate(params) {
+        let inputValue = input.value
+         let arr  = inputValue.split(params)
+         let ans 
+
+        if (params === '+') {
+           ans = +arr[0] + +arr[1] + +arr[2]
+        }else {
+             ans = +arr[0] - +arr[1] - +arr[2]
+        }
+
+        preview.innerHTML = ans
+    }
+
+  
+    
+
+
+let string = '45+56+4'
+string.split('+ ')
+
+
+
+console.log(val);
+
+if (true) {   
+var val = 56
+console.log(val);
+}else {
+let animal = 'monkey'
+console.log(val);
+}
+
+console.log(val);
+
+// console.log(isReading);
+
+
+
+function read(params) {
+    console.log(isReading);
+    
+    var isReading = true
+
+    console.log(isReading);
+    
+
+
+}
+
+read()
+
+
+
+
+
+</script>
