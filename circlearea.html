@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="myInput"> <button onclick="displayArea()"> calculate area </button>
+    <p id="output"> </p>
+    
+</body>
+</html>
+<script>
+
+
+function displayArea(params) {
+    let r = myInput.value.trim() // 9
+
+    if (!r) {
+        alert('input radius')
+    }else if (isNaN(r)){
+        alert('radius must be a number')
+    } else if ( r <= 0 )
+    {
+     alert('radius must be greater than 0')
+    }    
+    else {
+ output.innerHTML = `The area of a circle with radius ${r} is ${calArea(r)} `
+    }
+
+   
+}
+
+
+
+function calArea(radius) {
+    return Math.PI * (radius ** 2)
+}
+
+
+
+</script>

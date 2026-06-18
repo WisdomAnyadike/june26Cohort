@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="len">
+ <input type="text" id="width">
+<button onclick="displayPerimeter()"> calulate </button>
+<p id="preview"> </p>
+    
+</body>
+</html>
+<script>
+
+    function displayPerimeter(params) {
+
+        preview.innerHTML = `the perimeter of a rectangle with a length
+         of ${len.value.trim()}m and a width of ${width.value.trim()}m is
+          ${calPerimeter(+len.value.trim() , +width.value.trim() )}m `
+        
+    }
+
+
+
+
+function calPerimeter(l , w) {
+    return 2 * (l + w)
+}
+
+
+
+
+
+
+</script>

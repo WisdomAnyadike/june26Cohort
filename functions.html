@@ -60,6 +60,29 @@ multiplyBy5(50 , 5  , 4)
 multiplyBy5(4 , 5 )
 
 
+function add2numbers (numOne){
+
+ return function doTheAddition(numTwo) {
+        
+    return function lastOne () {
+            return 67 + numOne
+         }
+
+   }
+
+
+}
+
+ let total = add2numbers(45)(5)() + 60
+
+ console.log(total);
+ 
+
+
+
+
+
+
 
 
 </script>
