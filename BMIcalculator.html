@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <input type="text" id="weight" placeholder="enter weight (kg)">
+    <input type="text" id="height" placeholder="enter height (m) ">
+
+    <button onclick="calculateBmi()"> Calculate BMI</button>
+    <h3 id="result"></h3>
+    
+</body>
+</html>
+<script>
+
+    let inputWeight = document.getElementById("weight")
+    let inputHeight = document.getElementById("height")
+     let result = document.getElementById('result')
+
+function calculateBmi() {
+     
+    let weightValue = inputWeight.value.trim()
+    let heightValue = inputHeight.value.trim()
+   
+        if (weightValue === "" || heightValue === "" ) {
+            alert("all field are mandatory")
+
+        } else if (isNaN(weightValue) || isNaN(heightValue)) {
+            alert('Both input must be in numbers!')
+
+        }
+        else if(weightValue < 0 || heightValue < 0){
+            alert ('The value must be a positive number')
+        } else {
+           let bmi = calBmi(weightValue , heightValue).toFixed(2)
+            if (bmi < 18.5){
+                result.innerHTML = `You are underweight, your BMI is ${bmi}`
+            }
+            else if (bmi < 25) {
+                result.innerHTML = `You have a normal weight, your BMI is ${bmi}`
+            } else if (bmi < 30) {
+                 result.innerHTML = `You are Overweight, your BMI is ${bmi}`
+            }else {
+                 result.innerHTML = `You are Obese, your BMI is ${bmi}`
+            }
+        }
+
+
+ }
+
+
+
+ function calBmi(weight , height) {
+    let bmi = weight / (height * height)
+    return bmi
+ } 
+
+
+
+
+
+//  function addTwoNumbers(num1 , num2) {
+//     return num1 + num2
+//  }
+
+
+// let final = addTwoNumbers(45 , 5) + 50
+// addTwoNumbers(456378 , 362)
+// addTwoNumbers(4573 , 36234)
+
+
+
+
+
+ 
+
+</script>
