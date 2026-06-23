@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="prev()"> prev </button> 
+    <img id="image" src="" alt="" width="200" height="300">
+    <button onclick="next()"> next </button>
+    
+</body>
+</html>
+<script>
+let index = 0
+    let pictures = [ 'https://theportablewife.com/wp-content/uploads/best-places-to-take-pictures-in-paris-newfeatured.jpg' ,
+     'https://img.freepik.com/free-photo/smiling-young-woman-holding-retro-camera_329181-142.jpg?semt=ais_hybrid&w=740&q=80' ,
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFzuYME_c74VB_FFhy3aKERnjtwl5L7CnGQV90a_rAbA&s=10']
+
+   function displayPicture(params) {
+      image.src = pictures[index]
+   }
+
+   displayPicture()
+
+
+
+     function next() {
+        if (index === pictures.length - 1) {
+            index = 0
+        }else {
+         index++
+        }
+         displayPicture()
+     }
+
+
+     function prev() {
+        if (index === 0) {
+            index = pictures.length - 1
+        } else{
+            index--
+        }
+        displayPicture()
+     }
+
+</script>
