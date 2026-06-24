@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<input type="password" id="passwordInput"> <button id="myButton" onclick="toggle()">  show </button>
+
+
+    
+</body>
+</html>
+<script>
+
+// BUILD A SHOW AND HIDE PASSWORD FUNCTIONALITY WHERE ONCLICK OF 
+// SHOW THE INPUT TYPE PASSWORD ALLOWS YOU SEE EXACT WORDS WRITTEN IN THE INPUT 
+// THEN YOU COULD TOGGLE BACK WHERE INPUT HIDES THE VALUE IN IT , BOTH THE TEXT
+//  IN THE BUTTON AND TEXT IN INPUT WOULD BE AFFECTED . THE TEXT IN BUTTON TOGGLES 
+// FROM SHOW TO HIDE AND BACK , WHILE TEXT IN INPUT
+// TOGGLES FROM BEING HIDDEN TO BEING SEEN AND BACK
+
+// 5 MARKS (30 MINS)
+
+let passwordInput = document.getElementById('passwordInput')
+let isHidden = true
+
+
+function toggle() {
+    if (isHidden === true) {
+   passwordInput.type = 'text'
+   myButton.innerHTML  = 'hide'
+   isHidden = false
+    } else {
+   passwordInput.type = 'password'
+   myButton.innerHTML  = 'show'
+isHidden = true
+    }
+
+    //  isHidden = !isHidden
+    
+}
+
+
+
+
+</script>
