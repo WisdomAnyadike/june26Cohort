@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    
+</body>
+</html>
+<script>
+
+    let array = new Array(5).fill('hi')
+
+    let arr = [2,3,45] 
+
+//     console.log(arr.length , array);
+//  arr[1] = 'hello'
+//  console.log(typeof arr);
+
+console.log(Array.isArray(arr));
+
+
+if (Array.isArray(arr)) {
+   console.log('this is an array');
+    
+}
+ 
+
+    let string = 'david'
+    string = string.replace('a' , 'i')
+    // string[1] = 'i'
+
+let fruits = ['apple' , 'guava', 'orange']
+let vegetables = [ 'carrot' , 'oats' , 'ugwu' , 'oats' , 'efo' ] 
+let fibres = ['oats' , 'granola' , 'gargen eggs']
+
+let fruitsFibresAndVegetables = fruits.concat(vegetables , fibres , 'yoghurt')
+console.log(fruitsFibresAndVegetables);
+
+
+console.log(fruitsFibresAndVegetables.indexOf('oats'));
+
+console.log(fruitsFibresAndVegetables.lastIndexOf('oats'));
+
+let mySTRING = 'HELLO'
+mySTRING.indexOf('LL')
+
+
+
+mySTRING.includes('LL')
+
+console.log(fruitsFibresAndVegetables.includes('Ugwu'.toLowerCase()));
+
+
+console.log(fruitsFibresAndVegetables.toString());
+console.log(fruitsFibresAndVegetables.join(' , '));
+
+
+</script>
