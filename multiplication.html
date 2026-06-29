@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input placeholder="enter start number" id="start" type="text"> 
+    <input id="end" placeholder="enter end number" type="text">
+     <button onclick="createTable()"> create table </button>
+
+
+     <div id="preview">
+
+     </div>
+    
+</body>
+</html>
+<script>
+
+
+
+function createTable() {
+    let startValue = start.value.trim()
+    let endValue  = end.value.trim()
+    if (!startValue || !endValue) {
+        alert('please input a value')
+    }else if ( isNaN(startValue) || isNaN(endValue)) {
+     alert('please enter a number')
+    } else if ( +startValue <= 0){
+        alert('start number must be greater than 0')
+    }  else {
+     preview.innerHTML =  ''
+      if ( +startValue < +endValue ) {
+        for (let i= +startValue ; i <= +endValue; i++) {
+           displayTable(i)       
+     }
+    } else {
+    for (let i= +startValue ; i >= +endValue; i--) {
+            displayTable(i)
+     }
+    }
+    }  
+}
+
+
+function  displayTable(i ) {
+       preview.innerHTML +=  `<h3> Multiplication Table for ${i} </h3>`
+         for (let index = 1 ; index < 13; index++) {
+          preview.innerHTML +=  `<p> ${i} * ${index} = ${i * index} </p>`
+        }
+
+      preview.innerHTML += '<br>'
+}
+
+
+
+</script>
