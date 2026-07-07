@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="ca.js"> </script>
+<script>
+
+console.log(countries);
+
+
+
+countries.forEach((country , i , arr) => {
+    document.body.innerHTML += `<h3> ${country.name} </h3>`
+});
+
+
+function mostPopulatedCountries( countries , num ) {
+    let orderedCountries = countries.sort((a , b )=>  b.population  - a.population )
+    
+   let onlyCountryandPopulation = orderedCountries.map(( country )=> { return  {country: country.name , population:country.population}} )
+
+
+   let onlyNeededCountries = onlyCountryandPopulation.filter((country , i )=> { return i < num })
+
+   
+    return  onlyNeededCountries
+
+
+}
+
+
+console.log(mostPopulatedCountries(countries , 20 ));
+
+function mostSpokenLanguages( countries , num) {
+    let orderedCountries = countries.sort((a , b )=>  b.languages.length  - a.languages.length )
+    // console.log(orderedCountries);
+    
+    
+   let onlyCountryandCount = orderedCountries.map(( country )=> { return  {country: country.name , count:country.languages.length}} )
+console.log(onlyCountryandCount);
+
+
+   let onlyNeededCountries = onlyCountryandCount.filter((country , i )=> { return i < num })
+
+   
+    return  onlyNeededCountries
+
+
+}
+
+console.log(mostSpokenLanguages(countries, 4));
+
+
+
+
+
+let arr = [ 4,5,60,3 , 11]
+arr.sort((a,b)=> a - b )
+
+console.log(arr);
+
+</script>
