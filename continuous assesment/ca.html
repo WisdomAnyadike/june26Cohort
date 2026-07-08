@@ -17,7 +17,7 @@ console.log(countries);
 
 
 countries.forEach((country , i , arr) => {
-    document.body.innerHTML += `<h3> ${country.name} </h3>`
+    document.body.innerHTML += `<img width="50" height="50" src="${country.flag}" />`
 });
 
 
@@ -65,5 +65,52 @@ let arr = [ 4,5,60,3 , 11]
 arr.sort((a,b)=> a - b )
 
 console.log(arr);
+
+
+// every 
+let numbers = [2,3,4,5 ,6]
+
+let areAllValuesANumber = numbers.every((num , i  , arr )=> { 
+    console.log('hey');
+    
+    return typeof num === "number"} )
+
+    console.log(areAllValuesANumber);
+    if (areAllValuesANumber) {
+        console.log('wowwwwww');
+        
+    }else {
+        console.log('ohhh, im sad');
+        
+    }
+
+
+// some 
+
+let letters = ['w' , 'a' , 't' , 'y' , 'q']
+
+let atLeastOneLetterIsInCaps = letters.some((letter)=> { return letter.toUpperCase() === letter })
+
+console.log(atLeastOneLetterIsInCaps);
+
+// reduce 
+// accumulate 
+
+let total = 0
+
+for (let index = 0; index < numbers.length; index++) {
+   total = total + numbers[index]
+
+}
+
+  console.log(total);  
+
+
+let total1 = numbers.reduce(( pnum , cnum , i , arr)=> { return pnum + cnum } , 25 )
+
+
+let values = ['i' , 'am' ,'a' , 'boy']
+let finalSentence = values.reduce((a , b , i , arr)=> { return a + b + ' ' } , '').trim()
+console.log(finalSentence);
 
 </script>
