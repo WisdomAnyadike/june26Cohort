@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+       <div id="rechargeCard"> 
+    <section>
+        <main class="d-flex">
+            <div>
+                <label class="d-block" for="">Select a Provider</label>
+                <select class="form-select" name="" id="provider">
+                    <option value="">Select a Provider</option>
+                    <option value="MTN">MTN</option>
+                    <option value="Airtel">Airtel</option>
+                    <option value="9mobile">9mobile</option>
+                    <option value="Glo">Glo</option>
+                </select>
+            </div>
+    
+            <div>
+                <label class="d-block" for="">Select Price</label>
+                <select class="form-select" name="" id="amount">
+                    <option value="">Select a Price</option>
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                </select>
+            </div>
+           
+        </main>
+        <div>
+                <h1> pin: <span id="myPin"> </span></h1>
+            </div>
+        <button onclick="genAirtime()" class="btn btn-success">Generate Airtime</button>
+
+
+    </section>
+
+    <section>
+        <h2>Load Airtime</h2>
+        <input id="loadInput" type="text">
+        <button onclick="loadAirtime()">Load airtime</button>
+    </section>
+
+     <div>
+                <h1>Balance: <span id="bal"></span></h1>
+            </div>
+
+
+    <!-- <section>
+        <h2>All Pins</h2>
+        <table id="table">
+            <thead id="thead">
+                <th>Pin</th>
+                <th>Status</th>
+                <th>Provider</th>
+                <th>Amount</th>
+            </thead>
+            <tbody id="tbody">
+    
+            </tbody>
+        </table>
+    </section> -->
+</div>
+    
+</body>
+</html>

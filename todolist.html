@@ -18,17 +18,19 @@
 </body>
 </html>
 <script>
-    let allTodos = []
+    let allTodos = JSON.parse(localStorage.getItem('allTodos')) || []
     let todoInput = document.getElementById('todoInput')
     let previewDiv = document.getElementById('preview')
 
     function createTodo() {
-   let todoValue = todoInput.value.trim() 
-   allTodos.push(todoValue)
+   let todoValue = todoInput.value.trim()  // code
+   allTodos.push(todoValue) // ['code']
+   localStorage.setItem('allTodos' , JSON.stringify(allTodos))
    displayTodo()
    todoInput.value = '' 
     }
 
+    displayTodo()
 
     function editTodo(w) {
         console.log(`go and edit the value on index ${w}`);  
@@ -36,6 +38,7 @@
 
     function deleteTodo(i) {
         allTodos.splice(i , 1)
+           localStorage.setItem('allTodos' , JSON.stringify(allTodos))
        displayTodo()
     }
 

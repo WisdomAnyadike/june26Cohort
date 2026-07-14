@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+localStorage.setItem('name' , JSON.stringify({ name: 'wow'}) )
+
+
+localStorage.setItem('username' , 'daniel')
+
+let usersName = localStorage.getItem('username') // 'daniel'
+
+let val2 = JSON.parse(localStorage.getItem('name'))
+
+localStorage.removeItem('name')
+
+
+localStorage.clear()
+
+
+
+
+console.log(val2);
+   
+
+</script>
