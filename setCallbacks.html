@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="helpBegin()" id="clicker" > click </button>
+    
+
+    
+</body>
+</html>
+<script>
+
+
+function helpBegin(params) {
+
+setLoadingAndDisable(true)
+
+setTimeout(()=> {
+ alert('game has started')
+setLoadingAndDisable(false)
+} , 5000 )    
+
+
+}
+
+function setLoadingAndDisable(bool) {
+    clicker.innerHTML = bool ? 'Loading..' : 'click'
+    clicker.disabled = bool
+}
+
+let count = 0
+
+let displayHey = setInterval(()=> {
+    if (count === 5) {
+        clearInterval(displayHey)
+    }else {
+    document.body.innerHTML += `<h4> hey </h4>`
+     count++
+    } 
+} ,3000 )
+
+
+// setTimeout(()=> {
+//     clearInterval(displayHey)
+// }, 15000)
+
+
+</script>

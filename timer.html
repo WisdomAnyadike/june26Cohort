@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="startNumber"> <button onclick="startTimer()"> start </button>
+    
+</body>
+</html>
+<script>
+let startNumberInput = document.getElementById('startNumber')
+
+function startTimer() {
+   let startNumberValue =  startNumberInput.value.trim() // '10'
+
+    if(!startNumberValue){
+    alert('please input a value')
+    return
+    }
+    
+    if ( isNaN(startNumberValue)){
+     alert('please input a number')   
+     return
+    } 
+
+   let count = Number(startNumberValue)
+
+   if ( count <= 0){
+     alert('please input a positive number')   
+     return
+    } 
+
+
+
+ let timer = setInterval(() => {
+    if (count === 0) {
+     clearInterval(timer)
+     alert('time up!')
+    }else {
+    count--
+    startNumberInput.value = count 
+    }
+     
+  }, 1000) 
+
+    
+}
+
+
+</script>
