@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        tr,td,table,th , tbody , thead{
+           border-collapse: collapse;
+           padding: 10px;
+           border:  1px solid blue;
+
+        }
+    </style>
 </head>
 <body>
        <div id="rechargeCard"> 
@@ -51,21 +59,120 @@
             </div>
 
 
-    <!-- <section>
+    <section>
         <h2>All Pins</h2>
         <table id="table">
             <thead id="thead">
+                <th> s/n</th>
                 <th>Pin</th>
                 <th>Status</th>
                 <th>Provider</th>
                 <th>Amount</th>
             </thead>
+            
             <tbody id="tbody">
     
             </tbody>
         </table>
-    </section> -->
+    </section>
 </div>
     
 </body>
 </html>
+
+<script>
+    let providerElement = document.getElementById('provider')
+    let amountElement = document.getElementById('amount')
+    let cardDatabase = JSON.parse(localStorage.getItem('allCards')) || []
+
+
+  let myPins = document.getElementById('myPin')
+
+function genAirtime() {
+  let providerName = providerElement.value
+   let Amount =  amountElement.value
+
+  if (!providerName || !Amount ) {
+    alert('Pick a provider and amount')
+    return
+   }
+
+ let pin = "";
+for (let index = 0; index < 15; index++) {
+ let randomNumber = Math.floor(Math.random() *10)
+    pin = pin+randomNumber
+ }
+   myPins.innerHTML=pin
+   console.log(pin);
+   
+  let card = {
+    network: providerElement.value,
+    amount: amountElement.value,
+    pin,
+    isUsed: false
+  }
+  cardDatabase.push(card)
+localStorage.setItem('allCards' , JSON.stringify(cardDatabase))
+  displayTable()
+}
+
+displayTable()
+
+function displayTable(params) {
+    tbody.innerHTML = ''
+    cardDatabase.forEach((card, index) => {
+         tbody.innerHTML += `<tr>
+                <td> ${index + 1}</td>
+                <td> ${card.pin}</td>
+                <td> ${card.isUsed ? 'used' : 'not used'}</td>
+                <td> ${card.network}</td>
+                <td> ${card.amount}</td>
+            </tr>`
+    })
+   
+}
+
+   
+
+function loadAirtime() {
+    // *311*657849364789567#
+let cardToBeRechargedTotalFormat = loadInput.value.trim()
+let cardPin = cardToBeRechargedTotalFormat.slice(5 , 20 ) // 657849364789567
+
+if (cardDatabase.length === 0) {
+    alert('generate a card before you recharge')
+    return
+}
+
+let foundCard = cardDatabase.find(( card )=> { return card.pin === cardPin }) 
+
+    if (!cardToBeRechargedTotalFormat){
+        alert('Input cannot be empty')
+    } else if ( !cardToBeRechargedTotalFormat.startsWith('*311*') || 
+    !cardToBeRechargedTotalFormat.endsWith('#') ||  
+    cardToBeRechargedTotalFormat.length !== 21 ||
+     isNaN(cardPin)
+     ){
+      alert('invalid format')
+    } else if ( !foundCard ){
+    alert('invalid card')
+    }   else if ( foundCard.isUsed  )
+{
+alert('this card has been used by you!')
+
+    } else {
+
+        alert(`you have successfully recharged ${foundCard.network} worth ${foundCard.amount} `)
+  foundCard.isUsed = true
+localStorage.setItem('allCards' , JSON.stringify(cardDatabase))
+displayTable()
+
+    }
+}
+
+
+
+
+
+
+</script>
