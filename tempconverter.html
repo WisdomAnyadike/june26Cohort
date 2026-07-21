@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" > <button onclick="calculate(event)"> convert to farenheit </button>
+    <p> </p>
+</body>
+</html>
+<script>
+
+
+function calculate(e) {
+   let inputValue = e.target.previousElementSibling.value.trim()
+
+    if (inputValue === '') {
+        alert('input must not be empty')
+    } else {
+        let farenheit = (+inputValue * (9/5)) + 32
+        let outputElement = e.target.nextElementSibling
+        outputElement.innerHTML = `${farenheit}oF`
+
+
+    }
+
+    
+}
+
+let obj = {
+   firstStudent: { name: 'tolu'} ,
+ secondStudent : {name: 'morolake'} ,
+ thirdStudent : {name : 'jemima'}
+}
+
+let newObj = [
+   {firstStudent: { name: 'tolu'}} ,
+ {secondStudent : {name: 'morolake'}} ,
+ {thirdStudent : {name : 'jemima'}}
+]
+
+let index = 1
+newObj[index]['secondStudent']['name']
+newObj[index].secondStudent.name
+
+
+
+
+
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p onclick="run(event)" class="'wow" ondblclick="runValue()">  <span>hey , i am the paragraph tag </span> <i> hello </i>  </p>
+    <div> hey </div>
+</body>
+</html>
+<script>
+
+function run(ev) {
+    ev.target.parentElement.style.backgroundColor =  'orange'
+ev.target.style.backgroundColor = 'purple'
+    console.log(ev);
+    console.log(ev.target);
+    ev.target.style.borderRadius = '3px'
+    ev.target.lastElementChild.innerHTML = ''
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+</script>
