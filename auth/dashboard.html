@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="shell">
+
+    <!-- ---------- Sidebar ---------- -->
+    <aside class="sidebar">
+
+      <div class="brand">
+        <span>S</span>
+        SQI Cohort
+      </div>
+
+      <p class="nav-label">Menu</p>
+      <nav class="nav">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Students</a>
+        <a href="#">Grading</a>
+        <a href="#">Reports</a>
+      </nav>
+
+      <p class="nav-label" style="margin-top: 22px;">Account</p>
+      <nav class="nav">
+        <a href="#">Settings</a>
+        <a href="login.html">Log out</a>
+      </nav>
+
+    </aside>
+
+    <!-- ---------- Main ---------- -->
+    <div class="main">
+
+      <header class="topbar">
+        <input type="text" class="search" placeholder="Search..." />
+        <div class="avatar">WA</div>
+      </header>
+
+      <main class="content">
+
+        <!-- Welcome the user by name -->
+        <section class="welcome">
+          <h1>Welcome back, <span class="user-name">Wisdom</span>!</h1>
+          <p>Here is what has been happening in your cohort today.</p>
+        </section>
+
+        <!-- Stat cards -->
+        <section class="grid">
+
+          <div class="card">
+            <p class="label">Total Students</p>
+            <p class="value">128</p>
+            <p class="trend">+6 this week</p>
+          </div>
+
+          <div class="card">
+            <p class="label">Assignments</p>
+            <p class="value">24</p>
+            <p class="trend">3 due soon</p>
+          </div>
+
+          <div class="card">
+            <p class="label">Graded</p>
+            <p class="value">86%</p>
+            <p class="trend">+12% this month</p>
+          </div>
+
+          <div class="card">
+            <p class="label">Average Score</p>
+            <p class="value">72</p>
+            <p class="trend">Out of 100</p>
+          </div>
+
+        </section>
+
+        <!-- Recent activity -->
+        <section class="panel">
+
+          <div class="panel-head">
+            <h2>Recent Submissions</h2>
+            <a href="#">View all</a>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Assignment</th>
+                <th>Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Chidera Okeke</td>
+                <td>HTML Basics</td>
+                <td>23 Jul, 2026</td>
+                <td><span class="tag done">Graded</span></td>
+              </tr>
+              <tr>
+                <td>Amara Bello</td>
+                <td>CSS Layouts</td>
+                <td>22 Jul, 2026</td>
+                <td><span class="tag wait">Pending</span></td>
+              </tr>
+              <tr>
+                <td>Tunde Adeyemi</td>
+                <td>Flexbox Project</td>
+                <td>22 Jul, 2026</td>
+                <td><span class="tag done">Graded</span></td>
+              </tr>
+              <tr>
+                <td>Ngozi Eze</td>
+                <td>Responsive Page</td>
+                <td>21 Jul, 2026</td>
+                <td><span class="tag">In Review</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

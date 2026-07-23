@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign up</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-page">
+
+  <div class="auth-card">
+
+    <div class="brand">
+      <span>S</span>
+      SQI Cohort
+    </div>
+
+    <div class="auth-head">
+      <h1>Create your account</h1>
+      <p>It only takes a minute to get started.</p>
+    </div>
+
+    <form>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="firstname">First name</label>
+          <input type="text" id="firstname" name="firstname" placeholder="Wisdom" />
+        </div>
+        <div class="field">
+          <label for="lastname">Last name</label>
+          <input type="text" id="lastname" name="lastname" placeholder="Anyadike" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" />
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="At least 8 characters" />
+        <small> </small>
+      </div>
+
+      <div class="field">
+        <label for="confirm">Confirm password</label>
+        <input type="password" id="confirm" name="confirm" placeholder="Re-type your password" />
+        <small> </small>
+      </div>
+
+      <div class="form-note">
+        <label class="check">
+          <input type="checkbox"  name="terms" id="term" />
+          I agree to the <a href="#">Terms</a>
+        </label>
+      </div>
+
+      <button type="button" class="btn" >Create account</button>
+
+    </form>
+
+    <div class="divider">or</div>
+
+    <button type="button" class="btn btn-ghost">Sign up with Google</button>
+
+    <p class="auth-foot">
+      Already have an account? <a href="login.html">Log in</a>
+    </p>
+
+  </div>
+
+</body>
+</html>
+<script>
+let database = JSON.parse(localStorage.getItem('usersDatabaseJune')) || []
+   
+
+ let createButton = document.querySelector('.btn')
+
+ let signUp = () =>  {
+
+    let firstName = firstname.value.trim() 
+     let lastName = lastname.value.trim() 
+     let email = document.getElementById('email').value.trim() 
+     let password = document.getElementById('password').value.trim()
+     let confirm = document.getElementById('confirm').value.trim()
+   
+   
+    if (!firstName || !lastName || !email || !password || !confirm  ) {
+         alert('all fields are mandatory')
+    } else if ( !term.checked ) {
+      alert('please agree to terms and conditions')
+    } else if ( confirm !== password){
+        alert('passwords must match')
+    } else if ( password.length < 8 ){
+        alert('password must be at least 8 character')
+    } else if (   database.find((user)=> { return user.email === email })){
+alert('email already exist')
+    }else {
+          createButton.innerHTML = `<div class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+    </div>`
+    createButton.disabled = true
+
+
+        setTimeout(()=> {
+let user = {
+   name : `${firstName} ${lastName}` , 
+   email , 
+   password  , 
+   profilePic : null , 
+    blogDatabase : [] , 
+    userAttempts : 5 
+ }
+
+ database.push(user)
+ localStorage.setItem('usersDatabaseJune' , JSON.stringify(database))
+ alert('sign up successfully')
+ window.location.href   = 'login.html'
+         createButton.innerHTML = 'Create Account'
+             createButton.disabled = false
+
+        } , 3000)
+
+    }
+
+
+
+}
+
+createButton.addEventListener( 'click' ,  signUp )
+
+
+let inputs = document.querySelectorAll('input[type = password]')
+console.log(inputs);
+
+inputs.forEach(( input )=> { 
+    input.addEventListener('input' , checkPasswordLength )
+ })
+
+
+function checkPasswordLength(e) {
+if (e.target.value.trim().length < 8 || e.target.value.trim().length > 30 ) {
+    e.target.nextElementSibling.innerHTML = 'password must be at least 8 - 30 characters'
+    e.target.nextElementSibling.style.color = 'red'
+} else {
+      e.target.nextElementSibling.innerHTML = 'good'
+      e.target.nextElementSibling.style.color = 'green'
+}  
+}
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"> </script>

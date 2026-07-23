@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log in</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-page">
+
+  <div class="auth-card">
+
+    <div class="brand">
+      <span>S</span>
+      SQI Cohort
+    </div>
+
+    <div class="auth-head">
+      <h1>Welcome back</h1>
+      <p>Log in to continue to your dashboard.</p>
+    </div>
+
+    <form>
+
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" />
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" />
+      </div>
+
+      <div class="form-note">
+        <label class="check">
+          <input type="checkbox" name="remember" />
+          Remember me
+        </label>
+        <a href="#">Forgot password?</a>
+      </div>
+
+      <button type="button" class="btn"  >Log in</button>
+
+    </form>
+
+    <div class="divider">or</div>
+
+    <button type="button" class="btn btn-ghost">Continue with Google</button>
+
+    <p class="auth-foot">
+      Don't have an account? <a href="signup.html">Sign up</a>
+    </p>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+<script>
+let database = JSON.parse(localStorage.getItem('usersDatabaseJune')) || []
+let loginButton = document.querySelector('.btn')
+
+loginButton.addEventListener('click' , logIn)
+
+function logIn() {
+    let emailValue = email.value.trim()
+    let passwordValue = password.value.trim()
+
+    let foundUser = database.find(( user)=> user.email === emailValue )
+    console.log(foundUser);
+
+    if (!foundUser) {
+        alert('user doesnt exist , please signUp')
+    } else {
+        if (foundUser.password !== passwordValue) {
+        
+              if ( foundUser.userAttempts <= 0) {
+            alert('sorry your account has been barred')
+             } else {
+            foundUser.userAttempts --
+             localStorage.setItem('usersDatabaseJune' , JSON.stringify(database))
+            alert(`invalid credentials , you have ${foundUser.userAttempts} attempts left` ) 
+             }
+        
+         }  
+        
+        else {
+            foundUser.userAttempts = 5
+            localStorage.setItem('usersDatabaseJune' , JSON.stringify(database))
+           alert ('login successful')
+          window.location.href = 'dashboard.html'
+
+        }
+
+
+    }
+
+
+
+    
+}
+
+
+
+
+
+
+
+</script>
