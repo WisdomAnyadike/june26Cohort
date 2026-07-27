@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar" aria-label="Dashboard navigation">
+      <a class="brand" href="#">
+        <span class="brand-mark">P</span>
+        <span>PulseStock</span>
+      </a>
+
+      <nav class="nav-list">
+        <a class="active" href="#">Dashboard</a>
+        <a href="#">Products</a>
+        <a href="#">Orders</a>
+        <a href="#">Customers</a>
+        <a href="#">Reports</a>
+      </nav>
+
+      <div class="sidebar-note">
+        <span>Live catalog</span>
+        <strong>30 products</strong>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Inventory overview</p>
+          <h1>Products</h1>
+        </div>
+
+        <form class="search" action="#">
+          <label for="product-search">Search products</label>
+          <input id="product-search" type="search" placeholder="Search product, SKU, brand">
+        </form>
+      </header>
+
+      <section class="stats" aria-label="Product statistics">
+        <article>
+          <span>Total stock</span>
+          <strong>8,942</strong>
+          <small>+12.4% this month</small>
+        </article>
+        <article>
+          <span>Revenue</span>
+          <strong>$128.6k</strong>
+          <small>Across all categories</small>
+        </article>
+        <article>
+          <span>Low stock</span>
+          <strong>7</strong>
+          <small>Needs attention</small>
+        </article>
+        <article>
+          <span>Average rating</span>
+          <strong>4.7</strong>
+          <small>From 18,305 reviews</small>
+        </article>
+      </section>
+
+      <section class="toolbar" aria-label="Catalog controls">
+        <div class="tabs">
+          <a class="selected" href="#">All</a>
+          <a href="#">Electronics</a>
+          <a href="#">Fashion</a>
+          <a href="#">Home</a>
+          <a href="#">Wellness</a>
+        </div>
+
+        <div class="sort">
+          <label for="sort-products">Sort</label>
+          <select id="sort-products">
+            <option>Newest first</option>
+            <option>Price: low to high</option>
+            <option>Price: high to low</option>
+            <option>Stock level</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="product-grid" aria-label="All products">
+      
+
+
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+<script>
+
+// method 1
+// fetch('https://dummyjson.com/products' ).
+// then((r )=>  r.json() ).
+// then(( data )=> {
+//   console.log(data)
+// } ).catch(( err )=>    alert(err.message) ) 
+ 
+
+// method 2
+async function displayProducts(params) {
+try {
+   let res = await fetch('https://dummyjson.com/products')
+let data  = await res.json()
+console.log(data);
+
+data.products.forEach((product , i , arr) => {
+  let container = document.querySelector('.product-grid')
+  let productName = product.title
+  if (product.title.length <= 20) {
+  productName = productName
+  }
+  else{
+   productName = productName.slice(0 , 20) + '...'
+  }
+
+container.innerHTML += `<article class="product-card">
+          <div class="product-media">
+            <img  src=" ${product.images[0]}" alt="Game controller" >
+          </div>
+          <div class="product-body">
+            <span class="category">${product.category}</span>
+            <h2>${productName}</h2>
+            <p>${product.sku}</p>
+            <div class="product-meta">
+              <strong>$${(product.price - ((product.discountPercentage / 100 ) * product.price)).toFixed(2)} </strong>
+              <span>${product.stock} in stock</span>
+            </div>
+          </div>
+        </article>`
+   
+});
+
+
+} catch (err) {
+  alert(err.message)
+}
+
+  
+} 
+
+
+
+displayProducts()
+
+
+
+
+</script>
