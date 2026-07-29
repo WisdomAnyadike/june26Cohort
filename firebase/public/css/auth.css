@@ -1,0 +1,177 @@
+/* ==========================================================
+   Sign up + Log in — pages/signup.html, pages/login.html
+   Both pages share one layout, so they share one stylesheet.
+   Loaded after theme.css
+   ========================================================== */
+
+/* Two columns: coloured showcase on the left, form on the right */
+.auth-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* ==========================================================
+   Left showcase panel
+   ========================================================== */
+
+.auth-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px;
+  color: #fff;
+  background: linear-gradient(160deg, var(--brand), #6a4bff);
+}
+
+.auth-side h2 {
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+}
+
+.side-copy p {
+  max-width: 380px;
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* A few sample messages, so the sign-up page shows what you are joining */
+.side-chat {
+  display: grid;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.side-msg {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.side-msg .who {
+  margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.side-msg .text {
+  padding: 10px 14px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 4px 12px 12px 12px;
+}
+
+.side-msg .avatar {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+.side-foot {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==========================================================
+   Right form panel
+   ========================================================== */
+
+.auth-main {
+  display: grid;
+  place-items: center;
+  padding: 40px 24px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* The brand only shows here on phones, where the left panel is hidden */
+.auth-card .brand {
+  margin-bottom: 26px;
+}
+
+.auth-head {
+  margin-bottom: 26px;
+}
+
+.auth-head h1 {
+  font-size: 26px;
+  letter-spacing: -0.6px;
+}
+
+.auth-head p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+/* ==========================================================
+   Extra form bits (the inputs themselves live in theme.css)
+   ========================================================== */
+
+.form-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 4px 0 22px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.check input {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--brand);
+}
+
+/* "or" line between the button and the Google option */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.auth-foot {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+/* ==========================================================
+   Small screens
+   ========================================================== */
+
+@media (max-width: 900px) {
+  .auth-page {
+    grid-template-columns: 1fr;
+  }
+
+  /* On a phone the marketing panel is noise — the form is the job */
+  .auth-side {
+    display: none;
+  }
+}

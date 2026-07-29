@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create your account — Cohort Chat</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/auth.css" />
+  <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+
+  <div class="auth-page">
+
+    <!-- ==========================================================
+         Left: what you are joining
+         ========================================================== -->
+    <aside class="auth-side">
+
+      <a href="../index.html" class="brand light">
+        <span>S</span>
+        Cohort Chat
+      </a>
+
+      <div class="side-copy">
+
+        <h2>42 classmates.<br />One conversation.</h2>
+        <p>Sign up once and you are in every room the June '26 cohort uses.</p>
+
+        <div class="side-chat">
+
+          <div class="side-msg">
+            <div class="avatar sm">NE</div>
+            <div>
+              <p class="who">Ngozi · 9:04 PM</p>
+              <p class="text">Who else is still on the array methods task?</p>
+            </div>
+          </div>
+
+          <div class="side-msg">
+            <div class="avatar sm">CO</div>
+            <div>
+              <p class="who">Chidera · 9:06 PM</p>
+              <p class="text">Me 😭 but I just got <b>filter</b> to work, sending it now</p>
+            </div>
+          </div>
+
+          <div class="side-msg">
+            <div class="avatar sm">TA</div>
+            <div>
+              <p class="who">Tunde · 9:07 PM</p>
+              <p class="text">This chat is carrying my whole grade</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <p class="side-foot">SQI · June '26 JavaScript Cohort</p>
+
+    </aside>
+
+    <!-- ==========================================================
+         Right: the sign up form
+         ========================================================== -->
+    <main class="auth-main">
+      <div class="auth-card">
+
+        <div class="auth-head">
+          <h1>Create your account</h1>
+          <p>Takes a minute. Use the name your classmates know you by.</p>
+        </div>
+
+        <form>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="firstName">First name</label>
+              <input type="text" id="firstName" name="firstName" placeholder="Wisdom" />
+            </div>
+
+            <div class="field">
+              <label for="lastName">Last name</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Anyadike" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" />
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="At least 6 characters" />
+            <small>Use something you can remember — there is no reset yet.</small>
+          </div>
+
+          <div class="field">
+            <label for="confirmPassword">Confirm password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Type it again" />
+            <small></small>
+          </div>
+
+          <div class="form-note">
+            <label class="check">
+              <input type="checkbox" id="terms" name="terms" />
+              Keep the chat respectful
+            </label>
+          </div>
+
+          <button type="button" class="btn btn-block" onclick="signUserUp()">Create account</button>
+
+        </form>
+
+        <div class="divider">or</div>
+
+        <button type="button" class="btn btn-ghost btn-block">Continue with Google</button>
+
+        <p class="auth-foot">
+          Already have an account? <a href="login.html">Log in</a>
+        </p>
+
+      </div>
+    </main>
+
+  </div>
+
+</body>
+</html>
+<script src="../js/signup.js"></script>
