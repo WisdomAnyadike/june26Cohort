@@ -162,6 +162,50 @@
 }
 
 /* ==========================================================
+   Forgot password page only
+   ========================================================== */
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 22px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.back-link:hover {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+/* The "check your inbox" panel under the button */
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 22px;
+  padding: 14px 16px;
+  background: var(--brand-tint);
+  border-radius: 12px;
+}
+
+.note p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.note-ico {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* Same panel, green, for after the email has gone out */
+.note.sent {
+  background: #e7f7ee;
+}
+
+/* ==========================================================
    Small screens
    ========================================================== */
 

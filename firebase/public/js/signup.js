@@ -29,7 +29,14 @@ console.log(firebase);
     } else if (passwordValue !== confirmPasswordValue){
    alert('passwords must match')
     } else {
-firebase.auth().createUserWithEmailAndPassword( emailValue, passwordValue)
+
+    document.querySelector('.btn-block').innerHTML = 'Loading...'
+     document.querySelector('.btn-block').disabled = true
+
+
+
+
+auth.createUserWithEmailAndPassword( emailValue, passwordValue)
   .then((userCredential) => {
    
  var user = userCredential.user;
@@ -44,7 +51,8 @@ firebase.auth().createUserWithEmailAndPassword( emailValue, passwordValue)
    window.location.href = 'login.html'
    });  
 
-
+   document.querySelector('.btn-block').innerHTML = 'Create Account'
+     document.querySelector('.btn-block').disabled = false
     
   
   })
@@ -52,12 +60,15 @@ firebase.auth().createUserWithEmailAndPassword( emailValue, passwordValue)
     var errorCode = error.code;
     var errorMessage = error.message;
 console.log(errorMessage);
+ document.querySelector('.btn-block').innerHTML = 'Create Account'
+     document.querySelector('.btn-block').disabled = false
 
   });
 
         
     } 
   }
+
 
 
 

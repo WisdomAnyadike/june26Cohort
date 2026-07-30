@@ -153,6 +153,13 @@
   background: var(--line);
 }
 
+/* The box that holds every message and nothing else.
+   JS empties and refills this one element. */
+.messages {
+  display: flex;
+  flex-direction: column;
+}
+
 /* ---------- One message ---------- */
 
 .msg {

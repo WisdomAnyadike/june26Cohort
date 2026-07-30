@@ -6,6 +6,9 @@
   <title># general — Cohort Chat</title>
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/dashboard.css" />
+  <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-database-compat.js"></script>
 </head>
 <body class="chat-page">
 
@@ -25,14 +28,14 @@
       <div class="head-right">
 
         <div class="head-user">
-          <div class="avatar c1">WA</div>
+          <div class="avatar c1" id="myAvatar"> ... </div>
           <div>
-            <p class="name">Wisdom A.</p>
+            <p class="name" id="myName">Wisdom A.</p>
             <p class="status"><span class="dot"></span> Online</p>
           </div>
         </div>
 
-        <a href="login.html" class="btn btn-ghost btn-sm">Log out</a>
+        <button onclick="logUserOut()" class="btn btn-ghost btn-sm">Log out</button>
 
       </div>
 
@@ -42,13 +45,13 @@
   <!-- ==========================================================
        The conversation
        ========================================================== -->
-  <main class="stream">
+  <main class="stream" id="stream">
     <div class="inner">
 
       <!-- Welcome the person who just logged in -->
       <div class="welcome-note">
         <p class="pill"><span class="dot"></span> You're in</p>
-        <h2>Welcome, <span class="user-name">Wisdom</span> 👋</h2>
+        <h2>Welcome, <span class="user-name"> loading... </span> 👋</h2>
         <p>
           You have joined <b>#general</b> — the main room for the June '26 JavaScript
           cohort. Say hello, ask anything, and be kind to whoever is stuck.
@@ -57,86 +60,15 @@
 
       <div class="day">Today</div>
 
-      <!-- ---------- Someone else ---------- -->
-      <div class="msg">
-        <div class="avatar c2">AB</div>
-        <div class="msg-body">
-          <p class="msg-meta">
-            <span class="msg-name">Amara Bello</span>
-            <span class="msg-time">9:41 AM</span>
-          </p>
-          <div class="bubble">
-            Good morning everyone ☀️ Did anybody finish the array methods assignment?
-          </div>
-        </div>
-      </div>
+     
+      <div class="messages" id="messages">
 
-      <div class="msg">
-        <div class="avatar c3">TA</div>
-        <div class="msg-body">
-          <p class="msg-meta">
-            <span class="msg-name">Tunde Adeyemi</span>
-            <span class="msg-time">9:43 AM</span>
-          </p>
-          <div class="bubble">
-            I did, but my <b>filter</b> keeps returning an empty array and I don't know why.
-          </div>
-        </div>
-      </div>
+      
 
-      <!-- ---------- Me ---------- -->
-      <div class="msg mine">
-        <div class="avatar c1">WA</div>
-        <div class="msg-body">
-          <p class="msg-meta">
-            <span class="msg-name">You</span>
-            <span class="msg-time">9:45 AM</span>
-          </p>
-          <div class="bubble">
-            You probably forgot to return inside the callback. It should look like this:
-            <pre class="snippet">const passed = scores.filter(function (score) {
-  return score >= 50;
-});</pre>
-          </div>
-        </div>
-      </div>
 
-      <div class="msg">
-        <div class="avatar c3">TA</div>
-        <div class="msg-body">
-          <p class="msg-meta">
-            <span class="msg-name">Tunde Adeyemi</span>
-            <span class="msg-time">9:47 AM</span>
-          </p>
-          <div class="bubble">
-            That was exactly it 🙌 thank you!
-          </div>
-        </div>
       </div>
-
-      <div class="msg">
-        <div class="avatar c4">MW</div>
-        <div class="msg-body">
-          <p class="msg-meta">
-            <span class="msg-name">Mr. Wisdom</span>
-            <span class="msg-time">9:52 AM</span>
-          </p>
-          <div class="bubble">
-            This is exactly what the room is for. Submissions close 11:59 PM tonight.
-          </div>
-        </div>
-      </div>
-
-      <!-- ---------- Someone is typing ---------- -->
-      <div class="msg">
-        <div class="avatar c5">NE</div>
-        <div class="msg-body">
-          <p class="typing">
-            <i></i><i></i><i></i>
-            Ngozi is typing
-          </p>
-        </div>
-      </div>
+   
+      
 
     </div>
   </main>
@@ -146,10 +78,11 @@
        ========================================================== -->
   <div class="composer-bar">
     <form class="inner composer">
-      <input type="text" class="composer-input" placeholder="Message #general" />
-      <button type="button" class="btn">Send</button>
+      <input type="text" class="composer-input" id="messageInput" placeholder="Message #general" />
+      <button type="button" class="btn" id="sendButton" onclick="sendMssg()">Send</button>
     </form>
   </div>
 
 </body>
 </html>
+<script src="../js/dashboard.js"> </script>

@@ -6,6 +6,8 @@
   <title>Log in — Cohort Chat</title>
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-auth-compat.js"></script>
 </head>
 <body>
 
@@ -81,16 +83,16 @@
               <input type="checkbox" name="remember" />
               Remember me
             </label>
-            <a href="#">Forgot password?</a>
+            <a href="forgotpassword.html">Forgot password?</a>
           </div>
 
-          <button type="button" class="btn btn-block">Log in</button>
+          <button type="button" class="btn btn-block" onclick="logInUser()" >Log in</button>
 
         </form>
 
         <div class="divider">or</div>
 
-        <button type="button" class="btn btn-ghost btn-block">Continue with Google</button>
+        <button type="button" onclick="signInWithGoogle()" class="btn btn-ghost btn-block">Continue with Google</button>
 
         <p class="auth-foot">
           New to the cohort? <a href="signup.html">Create an account</a>
@@ -103,3 +105,5 @@
 
 </body>
 </html>
+<script src="../js/login.js"> </script>
+<script src="../js/google.js"></script>

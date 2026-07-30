@@ -95,7 +95,7 @@
           <div class="field">
             <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="At least 6 characters" />
-            <small>Use something you can remember — there is no reset yet.</small>
+            <small>Forgot it later? You can always <a href="forgotpassword.html">reset it</a>.</small>
           </div>
 
           <div class="field">
@@ -117,7 +117,7 @@
 
         <div class="divider">or</div>
 
-        <button type="button" class="btn btn-ghost btn-block">Continue with Google</button>
+        <button type="button" class="btn btn-ghost btn-block" onclick="signInWithGoogle()">Continue with Google</button>
 
         <p class="auth-foot">
           Already have an account? <a href="login.html">Log in</a>
@@ -131,3 +131,4 @@
 </body>
 </html>
 <script src="../js/signup.js"></script>
+<script src="../js/google.js"></script>
