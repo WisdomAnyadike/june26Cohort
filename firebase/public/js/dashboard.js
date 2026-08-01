@@ -122,19 +122,19 @@ authenticateUser()
  if (data.length === 0 ) {
     document.getElementById('messages').innerHTML =   'No messages available'
  } else {
- data.forEach((chat , i , arr) => {
-    let isMyMessage = chat.sender === auth.currentUser.displayName
+ data.forEach(({sender , time , avatar , isDeleted , message} , i , arr) => {
+    let isMyMessage = sender === auth.currentUser.displayName
 
 
       document.getElementById('messages').innerHTML +=  ` <div ondblclick="deleteMssg(${isMyMessage} , ${i})" class="msg ${isMyMessage ? 'mine' : ''} ">
-          <div class="avatar c3"> ${chat.avatar} </div>
+          <div class="avatar c3"> ${avatar} </div>
           <div class="msg-body">
             <p class="msg-meta">
-              <span class="msg-name">${chat.sender}</span>
-              <span class="msg-time">${chat.time}</span>
+              <span class="msg-name">${sender}</span>
+              <span class="msg-time">${time}</span>
             </p>
             <div class="bubble">
-             ${ chat.isDeleted ? '<i > This message has been deleted </i> '  : chat.message}
+             ${ isDeleted ? '<i > This message has been deleted </i> '  : message}
             </div>
           </div>
         </div>`

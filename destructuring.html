@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+    
+</body>
+</html>
+<script>
+
+const rectangle1 = {
+  width: 20,
+  height: 10,
+  area: 200
+}
+
+
+const rectangle2 = {
+  width: 50,
+  height: 100,
+  area: 20
+}
+
+let { area: a ,  width: wi  , height: he , perimeter: p = 200 } = rectangle1
+
+console.log(a , wi , he , p );
+
+function calculatePerimeter({width: w , height : h}) {
+    let perimeter = 2 * (w + h)
+    return perimeter
+}
+
+
+console.log(calculatePerimeter(rectangle1)); // 60
+
+console.log(calculatePerimeter(rectangle2)); // 300
+
+
+
+const todoList = [
+{
+  task:'Prepare JS Test',
+  time:'4/1/2020 8:30',
+  completed:true
+},
+{
+  task:'Give JS Test',
+  time:'4/1/2020 10:00',
+  completed:false
+},
+{
+  task:'Assess Test Result',
+  time:'4/1/2020 1:00',
+  completed:false
+}
+]
+
+
+todoList.forEach(( todo , i , arr )=> {
+    console.log(todo.task , todo.time , todo.completed);
+    
+
+})
+
+
+
+let arr = [1,       2,3,4,5]
+
+let newArr  = [...arr]
+
+
+let ages = [23,35,6,7,78,8,9,9,4,32,2 , 78 , 89]
+// ages.sort((a , b)=> a - b )
+// console.log(ages);
+
+// ages[0]
+
+// ages[ages.length - 1]
+
+
+console.log(Math.min(...ages));
+
+console.log(Math.max(...ages));
+
+
+const user = {
+  name:'Asabeneh',
+  title:'Programmer',
+  country:'Finland',
+  city:'Helsinki'
+}
+
+const copiedUser = {...user , name : 'wisdom'}
+
+
+// function addAllNums(params) {
+//     console.log(arguments);
+//     let sum = 0
+//     for (let index = 0; index < arguments.length; index++) {
+//         sum += arguments[index]
+//     }
+
+
+//     return sum
+// }
+
+
+let addAllNums = (...vals)=> {
+console.log(vals);
+let total = vals.reduce((a , b)=>  a + b , 0)
+return total
+  
+}
+
+console.log(addAllNums(3,4,5,6,6));
+
+console.log(addAllNums(334,5,6,6,5));
+
+
+
+
+</script>
